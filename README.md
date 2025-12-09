@@ -1,17 +1,17 @@
 # CraneFlyOS
 
-A lightweight, menu-driven operating system for MicroPython devices with the 1.3" OLED display.
+![csplash](https://github.com/user-attachments/assets/4b0bbe79-f4e5-48ff-94d1-7af29d28ffa1)
+
+
+A lightweight, menu-driven operating system for PiPico with the 1.3" OLED display.
 
 
 # Core System
 - **Interactive Menu System** - Navigate through commands using two-button controls
-- **File Browser (cbin)** - Browse and execute Python scripts from your filesystem
-- **System Information (cfetch)** - Display hardware specs, temperature, and system ID
-- **System Monitor (ctop)** - Real-time uptime and memory usage statistics
 
 # Subprocess Management
 - Execute external Python programs with exit handling
-- Not so clean process termination *but, it works!)
+- Not so clean process termination *but, it works
 
 # Hardware Requirements
 
@@ -21,7 +21,7 @@ A lightweight, menu-driven operating system for MicroPython devices with the 1.3
 # Installation
 
 1. Flash MicroPython to your device
-2. Copy main.py and ssd1306.py to the root directory of your device
+2. Copy main.py, convert.py, ssd1306.py to the root directory of your device
 3. The OS will automatically start on boot
 
 # Button Controls
@@ -40,12 +40,15 @@ When running external programs:
 
 ## Menu Commands
 
+![Cmenu](https://github.com/user-attachments/assets/cf565f0d-d9b7-4d87-8f01-30081a13d16e)
+
+
 # cfetch
 Displays system information
 - Serial ID
 - Processor Frequency
 - CPU temp
-- Ram (working on this)
+- Ram (placeholder text in code)
 
 # ctop
 Quazi system monitoring:
@@ -56,8 +59,8 @@ Quazi system monitoring:
 
 # cbin
 File browser and executor:
-- Execute `.py` files on the pico
-- Automatic exclusion of `main.py` (the OS itself)
+- Execute .py files on the pico
+- Automatic exclusion of main.py (the OS itself, although you could probably run a copy within a copy within a copy....)
 
 # reboot
 Restart the system
@@ -67,9 +70,7 @@ Restart the system
 
 ## Creating Programs for CraneFly OS
 
-External programs can integrate with the OS for exits:
-
-Add to code:
+External programs can integrate with the OS for exit code:
 
 # Check if user requested exit
 if should_exit():
@@ -81,8 +82,7 @@ if check_exit():
     # Clean up and exit
     break
 
-These functions are automatically injected into the namespace when your program runs through the cbin.
-
+These functions are automatically injected into the namespace when your program runs through the cbin though, they may conflict with other code.
 
 
 ## Contributing
@@ -94,7 +94,7 @@ Contributions are welcome! Areas for improvement:
 - Configuration system
 - Journal or To-Do notepad function
 - Help system implementation
-- Network connectivity features
+- Network connectivity features (pico W)
 
 ### v1.0.1 Inital Release
 - 30-second inactivity timeout screensaver (this is where the .1 comes from!)
@@ -106,4 +106,4 @@ Contributions are welcome! Areas for improvement:
 
 ---
 
-**Note**: This OS is designed to run as `main.py` on your MicroPython device. It will automatically start on boot and provide a persistent menu interface for system interaction.
+**Note**: This OS is designed to run as main.py on the Pi Pico. It will automatically start on boot and provide a persistent menu interface for system interaction.
